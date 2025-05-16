@@ -1,5 +1,5 @@
 # -------- First Stage: Build the app --------
-FROM maven:3.9.6-openjdk-18 AS builder
+FROM maven:3.9.4-eclipse-temurin-17 AS builder
 
 WORKDIR /app
 
@@ -9,7 +9,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # -------- Second Stage: Run the app --------
-FROM eclipse-temurin:18-jdk-alpine
+FROM eclipse-temurin:17-jdk-alpine
 
 WORKDIR /app
 
